@@ -11,6 +11,19 @@ import Shop from './pages/Shop'
 import Training from './pages/Training'
 import Contacts from './pages/Contacts'
 
+// pages/_app.tsx
+import type { AppProps } from 'next/app'
+import AuthCapsule from '@/components/AuthCapsule'   // или '../components/AuthCapsule' если нет alias '@'
+import '../styles/globals.css'                        // путь к твоим глобальным стилям
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <>
+      <AuthCapsule />
+      <Component {...pageProps} />
+    </>
+  )
+}
 type Lang = 'lt' | 'en' | 'ru'
 const palette = { bg:'#000000' }
 const i18n: Record<Lang, any> = {
